@@ -1,0 +1,49 @@
+<h1>Pagination</h1>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Siteid">
+      <mat-header-cell *matHeaderCellDef> SiteId </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Siteid}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Location">
+      <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Location}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Plant">
+      <mat-header-cell *matHeaderCellDef> Plant </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Plant}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Subunit">
+      <mat-header-cell *matHeaderCellDef> Subunit </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Subunit}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [length]="totalRecords" [pageSize]="postsperpage"
+               [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)">
+
+</mat-paginator>
+
+</div>
+
+<!-- <mat-paginator #paginator [length]="ELEMENT_DATA?.length" [pageSize]="postsperpage"
+               [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)">
+
+</mat-paginator> -->
